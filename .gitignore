@@ -1,133 +1,23 @@
-# PASS-CCTV Project .gitignore
+# Datasets
+ABODA/
+data/
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environment
+# Environment
 env/
 venv/
-ENV/
-env.bak/
-venv.bak/
 
-# PyTorch
-*.pth
+# Outputs
+output/
+final_outputs/
+
+# Models
+models/
 *.pt
-!models/yolov5s.pt
-!models/osnet_x1_0_imagenet.pth
 
-# CLIP Model (too large for GitHub)
-models/ViT-B-32.pt
+# Python cache
+_pycache_/
+*.pyc
 
-# PyCharm
-.idea/
-*.iml
-
-# VS Code
-.vscode/
-*.code-workspace
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb
-
-# Model cache
-.cache/
-__MACOSX/
-
-# Output files
-outputs/
-*.mp4
-*.avi
-*.mkv
-*.mov
-
-# Test data (videos are large)
-test_data/*.mp4
-test_data/*.avi
-test_data/*.mkv
-test_data/*.mov
-test_data/demo_video.*
-
-# Keep sample image
-!test_data/test_people.jpg
-
-# Dataset folders
-ABODA/
-FireNet/
-KISA/
-
-# Logs
-*.log
-logs/
-
-# OS specific
+# OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-desktop.ini
-
-# Temporary files
-*.swp
-*.swo
-*~
-.tmp/
-temp/
-
-# Large files
-*.zip
-*.tar.gz
-*.rar
-
-# Environment variables
-.env
-.env.local
-
-# Transcripts
-/mnt/transcripts/
-
-# User data
-/mnt/user-data/
-
-# Documentation builds
-docs/_build/
-site/
-
-# Coverage reports
-htmlcov/
-.coverage
-.coverage.*
-coverage.xml
-*.cover
-
-# PyTest
-.pytest_cache/
-.tox/
-
-# MyPy
-.mypy_cache/
-.dmypy.json
-dmypy.json
