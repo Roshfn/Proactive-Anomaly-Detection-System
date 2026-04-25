@@ -1,9 +1,10 @@
 # Proactive Anomaly Detection System 
 
-**Proactive Anomaly Detection System — complete revamp**
+*Research paper:* https://doi.org/10.22214/ijraset.2026.80199
 
-Detects four anomaly types from CCTV video, based on
+Detects four anomaly types from CCTV video, inspried by 
 *Jeon et al., Expert Systems With Applications 2024*.
+
 
 \---
 
@@ -33,22 +34,6 @@ Detects four anomaly types from CCTV video, based on
                                         │
                                composite output + HUD
 ```
-
-\---
-
-## What's fixed vs original
-
-|Issue|Fix|
-|-|-|
-|IDs swapping / wrong|Two-stage cascade match: appearance (cosine) + IoU fallback; feature gallery (mean of last 10) instead of last-only|
-|Non-person objects tracked|ATM (Area of Trajectory Movement) filter: oscillating blobs score near-zero and are suppressed after 25 frames|
-|Tracklet trail not drawn|`trajectory\_centers()` rendered as fading polyline on every confirmed track|
-|Loitering no colour change|Bbox colour is **green** normally, **red** when loitering duration ≥ threshold|
-|Intrusion no alert|Bbox-polygon overlap ratio checked every frame; any track inside restricted zone gets red bbox + alert|
-|Abandonment no alert|`\_LuggageState` tracks per-item ownership; 10 s unowned timer → box turns red + alert fires|
-|Owner ID on luggage|`owner:{track\_id}` label drawn on luggage bbox at all times|
-|Arson threshold too high|CLIP score = avg-top3-fire − 0.3×max-nonfire (contrast scoring); smoothed over 5 frames; default threshold 0.26|
-|CLIP not detecting small fire|Stop-region patches + person patches added; 18 fire prompts covering sparks, small flames, arsonist behaviour|
 
 \---
 
@@ -161,10 +146,10 @@ the pixel positions of your zone corners.
 
 |Colour|Meaning|
 |-|-|
-|🟩 Green bbox|Person detected, no anomaly|
-|🟥 Red bbox|Loitering or intrusion alert|
-|🟨 Yellow bbox|Luggage — owner present|
-|🟥 Red bbox|Luggage — **abandoned**|
+|Green bbox|Person detected, no anomaly|
+|Red bbox|Loitering or intrusion alert|
+|Yellow bbox|Luggage — owner present|
+|Red bbox|Luggage — **abandoned**|
 |Red tint + banner|Fire / arson detected|
 |Fading trail|Person trajectory (colour matches bbox)|
 |Zone overlay (blue/green)|Intrusion / loitering zones|
